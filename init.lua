@@ -336,6 +336,7 @@ if vim.g.vscode then
   vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
   vim.keymap.set({ 'n' }, "<leader>sp", search.project)
   vim.keymap.set({ 'n' }, "<leader>st", search.text)
+  vim.keymap.set({ 'n' }, "<leader>sf", project.findFile)
 
   -- vscode
   vim.keymap.set({ 'n' }, "<leader>ve", vscode.focusEditor)
