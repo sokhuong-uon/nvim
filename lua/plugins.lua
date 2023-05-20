@@ -18,6 +18,15 @@ return require('packer').startup(function(use)
     config = function() require("leap").set_default_keymaps(true) end
   }
 
+  use {
+    "wincent/scalpel",
+    config = function()
+      vim.cmd [[
+        nmap <leader>E <Plug>(Scalpel)
+      ]]
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
