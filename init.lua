@@ -23,9 +23,6 @@ vim.keymap.set('i', 'jk', "<Esc>")
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
 
--- refactor
-vim.api.nvim_set_keymap('n', '<leader>rd', 'V%d', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rv', 'V%', { silent = true })
 --#endregion keymap
 
 if vim.g.vscode then
@@ -247,6 +244,18 @@ if vim.g.vscode then
     showMenu = function()
       vim.fn.VSCodeNotify("editor.action.refactor")
     end,
+
+    wrapTag = function()
+      vim.fn.VSCodeNotifyRange("editor.emmet.action.wrapWithAbbreviation", vim.fn.line("v"), vim.fn.line("."), 1)
+    end,
+
+    deleteTag = function()
+      vim.fn.VSCodeNotify("editor.emmet.action.removeTag")
+    end,
+
+    updateTag = function()
+      vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
+    end,
   }
   --#endregion variable
 
@@ -315,10 +324,11 @@ if vim.g.vscode then
   vim.keymap.set({ 'n', 'v' }, "<leader>tt", toggle.theme)
 
   -- refactor
-  vim.keymap.set({ 'v' }, "<leader>r", refactor.showMenu)
+  vim.keymap.set({ 'n' }, "<leader>r", refactor.showMenu)
   vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
-  vim.api.nvim_set_keymap('n', '<leader>rd', 'V%d', { silent = true })
-  vim.api.nvim_set_keymap('n', '<leader>rv', 'V%', { silent = true })
+  vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.wrapTag)
+  vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.deleteTag)
+  vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.updateTag)
 
   -- bookmark
   vim.keymap.set({ 'n' }, "<leader>mt", bookmark.toggle)
