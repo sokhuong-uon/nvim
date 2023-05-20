@@ -100,17 +100,24 @@ if vim.g.vscode then
   }
 
   local toggle = {
-    toggleActivityBar = function()
+    activityBar = function()
       vim.fn.VSCodeNotify("workbench.action.toggleActivityBarVisibility")
     end,
-    toggleSideBarVisibility = function()
+
+    sideBarVisibility = function()
       vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
     end,
-    toggleZenMode = function()
+
+    zenMode = function()
       vim.fn.VSCodeNotify("workbench.action.toggleZenMode")
     end,
+
     theme = function()
       vim.fn.VSCodeNotify("workbench.action.selectTheme")
+    end,
+
+    breadcrumbs = function()
+      vim.fn.VSCodeNotify("breadcrumbs.toggle")
     end,
   }
 
@@ -302,10 +309,11 @@ if vim.g.vscode then
   vim.keymap.set({ 'n', 'v' }, "<space>bk", editor.closeOther)
 
   -- toggle
-  vim.keymap.set({ 'n', 'v' }, "<leader>ta", toggle.toggleActivityBar)
-  vim.keymap.set({ 'n', 'v' }, "<leader>tz", toggle.toggleZenMode)
-  vim.keymap.set({ 'n', 'v' }, "<leader>ts", toggle.toggleSideBarVisibility)
+  vim.keymap.set({ 'n', 'v' }, "<leader>ta", toggle.activityBar)
+  vim.keymap.set({ 'n', 'v' }, "<leader>tz", toggle.zenMode)
+  vim.keymap.set({ 'n', 'v' }, "<leader>ts", toggle.sideBarVisibility)
   vim.keymap.set({ 'n', 'v' }, "<leader>tt", toggle.theme)
+  vim.keymap.set({ 'n', 'v' }, "<leader>tl", toggle.breadcrumbs)
 
   -- refactor
   vim.keymap.set({ 'n' }, "<leader>r", refactor.showMenu)
