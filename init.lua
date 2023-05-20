@@ -1,4 +1,16 @@
 require("plugins")
+local vscode = require("vscode")
+
+local whichkey = vscode.whichkey
+local comment = vscode.comment
+local refactor = vscode.refactor
+local fold = vscode.fold
+local git = vscode.git
+local problem = vscode.problem
+local search = vscode.search
+local toggle = vscode.toggle
+local workbench = vscode.workbench
+local buffer = vscode.buffer
 
 --#region keymap
 vim.g.mapleader = " "
@@ -9,241 +21,13 @@ vim.keymap.set({ 'n', 'v' }, "k", "gk", { silent = true })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>h', '^', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>l', '$', { silent = true })
-vim.keymap.set({ 'n', 'v' }, '<leader>a', '%', { silent = true })
-
+vim.keymap.set({ 'n', 'v' }, '<leader>a', '%', { remap = true, silent = true })
 
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
-
 --#endregion keymap
 
 if vim.g.vscode then
-  -- VSCode extension
-  --#region variable
-  local whichkey = {
-    show = function()
-      vim.fn.VSCodeNotify("whichkey.show")
-    end
-  }
-
-  local comment = {
-    selected = function()
-      vim.fn.VSCodeNotifyRange("editor.action.commentLine", vim.fn.line("v"), vim.fn.line("."), 1)
-    end
-  }
-
-  local problem = {
-    list = function()
-      vim.fn.VSCodeNotify("workbench.actions.view.problems")
-    end,
-
-    next = function()
-      vim.fn.VSCodeNotify("editor.action.marker.next")
-    end,
-
-    previous = function()
-      vim.fn.VSCodeNotify("editor.action.marker.prev")
-    end,
-  }
-
-  local buffer = {
-    new = function()
-      vim.fn.VSCodeNotify("workbench.explorer.fileView.focus")
-      vim.fn.VSCodeNotify("explorer.newFile")
-    end,
-
-    save = function()
-      vim.fn.VSCodeNotify("workbench.action.files.save")
-    end,
-
-    saveAll = function()
-      vim.fn.VSCodeNotify("workbench.action.files.saveAll")
-    end,
-
-    format = function()
-      vim.fn.VSCodeNotify("editor.action.formatDocument")
-    end,
-
-    showInExplorer = function()
-      vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
-    end,
-
-    rename = function()
-      vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
-      vim.fn.VSCodeNotify("renameFile")
-    end,
-
-    close = function()
-      vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
-    end,
-
-    closeOther = function()
-      vim.fn.VSCodeNotify("workbench.action.closeOtherEditors")
-    end,
-
-    organizeImport = function()
-      vim.fn.VSCodeNotify("editor.action.organizeImports")
-    end
-  }
-
-  local workbench = {
-    showCommands = function()
-      vim.fn.VSCodeNotify("workbench.action.showCommands")
-    end,
-    previousEditor = function()
-      vim.fn.VSCodeNotify("workbench.action.previousEditor")
-    end,
-    nextEditor = function()
-      vim.fn.VSCodeNotify("workbench.action.nextEditor")
-    end,
-  }
-
-  local toggle = {
-    activityBar = function()
-      vim.fn.VSCodeNotify("workbench.action.toggleActivityBarVisibility")
-    end,
-
-    sideBarVisibility = function()
-      vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
-    end,
-
-    zenMode = function()
-      vim.fn.VSCodeNotify("workbench.action.toggleZenMode")
-    end,
-
-    theme = function()
-      vim.fn.VSCodeNotify("workbench.action.selectTheme")
-    end,
-
-    breadcrumbs = function()
-      vim.fn.VSCodeNotify("breadcrumbs.toggle")
-    end,
-  }
-
-  local symbol = {
-    rename = function()
-      vim.fn.VSCodeNotify("editor.action.rename")
-    end,
-  }
-
-  local search = {
-    reference = function()
-      vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
-    end,
-
-    referenceInSideBar = function()
-      vim.fn.VSCodeNotify("references-view.find")
-    end,
-
-    project = function()
-      vim.fn.VSCodeNotify("editor.action.addSelectionToNextFindMatch")
-      vim.fn.VSCodeNotify("workbench.action.findInFiles")
-    end,
-
-    text = function()
-      vim.fn.VSCodeNotify("workbench.action.findInFiles")
-    end,
-
-    file = function()
-      vim.fn.VSCodeNotify("workbench.action.quickOpen")
-    end,
-  }
-
-  local project = {
-    findFile = function()
-      vim.fn.VSCodeNotify("workbench.action.quickOpen")
-    end,
-    switch = function()
-      vim.fn.VSCodeNotify("workbench.action.openRecent")
-    end,
-    tree = function()
-      vim.fn.VSCodeNotify("workbench.view.explorer")
-    end,
-  }
-
-  local git = {
-    init = function()
-      vim.fn.VSCodeNotify("git.init")
-    end,
-    status = function()
-      vim.fn.VSCodeNotify("workbench.view.scm")
-    end,
-    switch = function()
-      vim.fn.VSCodeNotify("git.checkout")
-    end,
-    deleteBranch = function()
-      vim.fn.VSCodeNotify("git.deleteBranch")
-    end,
-    push = function()
-      vim.fn.VSCodeNotify("git.push")
-    end,
-    pull = function()
-      vim.fn.VSCodeNotify("git.pull")
-    end,
-    fetch = function()
-      vim.fn.VSCodeNotify("git.fetch")
-    end,
-    commit = function()
-      vim.fn.VSCodeNotify("git.commit")
-    end,
-    publish = function()
-      vim.fn.VSCodeNotify("git.publish")
-    end,
-    -- if gitlens installed
-    graph = function()
-      vim.fn.VSCodeNotify("gitlens.showGraphPage")
-    end,
-  }
-
-  local fold = {
-    toggle = function()
-      vim.fn.VSCodeNotify("editor.toggleFold")
-    end,
-    all = function()
-      vim.fn.VSCodeNotify("editor.foldAll")
-    end,
-    openAll = function()
-      vim.fn.VSCodeNotify("editor.unfoldAll")
-    end,
-    close = function()
-      vim.fn.VSCodeNotify("editor.fold")
-    end,
-    open = function()
-      vim.fn.VSCodeNotify("editor.unfold")
-    end,
-    openRecursive = function()
-      vim.fn.VSCodeNotify("editor.unfoldRecursively")
-    end,
-    blockComment = function()
-      vim.fn.VSCodeNotify("editor.foldAllBlockComments")
-    end,
-    allMarkerRegion = function()
-      vim.fn.VSCodeNotify("editor.foldAllMarkerRegions")
-    end,
-    openAllMarkerRegion = function()
-      vim.fn.VSCodeNotify("editor.unfoldAllMarkerRegions")
-    end,
-  }
-
-  local refactor = {
-    showMenu = function()
-      vim.fn.VSCodeNotify("editor.action.refactor")
-    end,
-
-    wrapTag = function()
-      vim.fn.VSCodeNotifyRange("editor.emmet.action.wrapWithAbbreviation", vim.fn.line("v"), vim.fn.line("."), 1)
-    end,
-
-    deleteTag = function()
-      vim.fn.VSCodeNotify("editor.emmet.action.removeTag")
-    end,
-
-    updateTag = function()
-      vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
-    end,
-  }
-  --#endregion variable
-
   --#region keymap
 
   -- whichkey
@@ -296,7 +80,7 @@ if vim.g.vscode then
 
   -- refactor
   vim.keymap.set({ 'n' }, "<leader>r", refactor.showMenu)
-  vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
+  vim.keymap.set({ 'n' }, "<leader>rr", refactor.rename)
   vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.wrapTag)
   vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.deleteTag)
   vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.updateTag)
