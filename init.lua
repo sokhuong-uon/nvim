@@ -120,22 +120,6 @@ if vim.g.vscode then
     end,
   }
 
-  -- if bookmark extension is used
-  local bookmark = {
-    toggle = function()
-      vim.fn.VSCodeNotify("bookmarks.toggle")
-    end,
-    list = function()
-      vim.fn.VSCodeNotify("bookmarks.list")
-    end,
-    previous = function()
-      vim.fn.VSCodeNotify("bookmarks.jumpToPrevious")
-    end,
-    next = function()
-      vim.fn.VSCodeNotify("bookmarks.jumpToNext")
-    end,
-  }
-
   local search = {
     reference = function()
       vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
@@ -329,18 +313,6 @@ if vim.g.vscode then
   vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.wrapTag)
   vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.deleteTag)
   vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.updateTag)
-
-  -- bookmark
-  vim.keymap.set({ 'n' }, "<leader>mt", bookmark.toggle)
-  vim.keymap.set({ 'n' }, "<leader>ml", bookmark.list)
-  vim.keymap.set({ 'n' }, "<leader>mn", bookmark.next)
-  vim.keymap.set({ 'n' }, "<leader>mp", bookmark.previous)
-
-  vim.keymap.set({ 'n' }, "mt", bookmark.toggle)
-  vim.keymap.set({ 'n' }, "mm", bookmark.next)
-  vim.keymap.set({ 'n' }, "mn", bookmark.next)
-  vim.keymap.set({ 'n' }, "mp", bookmark.previous)
-  vim.keymap.set({ 'n' }, "mb", bookmark.previous)
 
   vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
   vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
