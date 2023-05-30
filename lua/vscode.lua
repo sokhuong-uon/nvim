@@ -197,17 +197,19 @@ local refactor = {
     vim.fn.VSCodeNotify("editor.action.rename")
   end,
 
-  wrapTag = function()
-    vim.fn.VSCodeNotifyRange("editor.emmet.action.wrapWithAbbreviation", vim.fn.line("v"), vim.fn.line("."), 1)
-  end,
+  html = {
+    wrap = function()
+      vim.fn.VSCodeNotifyRange("editor.emmet.action.wrapWithAbbreviation", vim.fn.line("v"), vim.fn.line("."), 1)
+    end,
 
-  deleteTag = function()
-    vim.fn.VSCodeNotify("editor.emmet.action.removeTag")
-  end,
+    delete = function()
+      vim.fn.VSCodeNotify("editor.emmet.action.removeTag")
+    end,
 
-  updateTag = function()
-    vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
-  end,
+    update = function()
+      vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
+    end,
+  }
 }
 --#endregion variable
 

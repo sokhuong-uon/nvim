@@ -16,12 +16,13 @@ local buffer = vscode.buffer
 vim.g.mapleader = " "
 
 vim.keymap.set('i', 'jk', "<Esc>")
-vim.keymap.set({ 'n', 'v' }, "j", "gj", { silent = true })
-vim.keymap.set({ 'n', 'v' }, "k", "gk", { silent = true })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>h', '^', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>l', '$', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>a', '%', { remap = true, silent = true })
+
+vim.keymap.set({ 'n', 'v' }, "j", "gj", { silent = true, remap = true })
+vim.keymap.set({ 'n', 'v' }, "k", "gk", { silent = true, remap = true })
 
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
@@ -81,9 +82,10 @@ if vim.g.vscode then
   -- refactor
   vim.keymap.set({ 'n' }, "<leader>r", refactor.showMenu)
   vim.keymap.set({ 'n' }, "<leader>rr", refactor.rename)
-  vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.wrapTag)
-  vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.deleteTag)
-  vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.updateTag)
+  -- refactor html
+  vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.html.wrap)
+  vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.html.delete)
+  vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.html.update)
 
   -- search
   vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
