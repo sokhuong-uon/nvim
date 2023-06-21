@@ -211,6 +211,24 @@ local refactor = {
     end,
   }
 }
+
+local gitGoto = {
+  nextChange = function()
+    vim.fn.VSCodeNotify("workbench.action.editor.nextChange")
+  end,
+
+  showNextChange = function()
+    vim.fn.VSCodeNotify("editor.action.dirtydiff.next")
+  end,
+
+  previousChange = function()
+    vim.fn.VSCodeNotify("workbench.action.editor.previousChange")
+  end,
+
+  showPreviousChange = function()
+    vim.fn.VSCodeNotify("editor.action.dirtydiff.previous")
+  end,
+}
 --#endregion variable
 
 vscode.whichkey = whichkey
@@ -223,5 +241,6 @@ vscode.search = search
 vscode.toggle = toggle
 vscode.workbench = workbench
 vscode.buffer = buffer
+vscode.gitGoto = gitGoto
 
 return vscode

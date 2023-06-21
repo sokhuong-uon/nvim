@@ -11,6 +11,7 @@ local search = vscode.search
 local toggle = vscode.toggle
 local workbench = vscode.workbench
 local buffer = vscode.buffer
+local gitGoto = vscode.gitGoto
 
 --#region keymap
 vim.g.mapleader = " "
@@ -45,6 +46,12 @@ if vim.g.vscode then
 
   vim.keymap.set({ 'n', 'v' }, "H", workbench.previousEditor)
   vim.keymap.set({ 'n', 'v' }, "L", workbench.nextEditor)
+
+  -- go to
+  vim.keymap.set({ 'n' }, "gn", gitGoto.nextChange, { noremap = true, silent = true })
+  vim.keymap.set({ 'n' }, "gN", gitGoto.showNextChange, { noremap = true, silent = true })
+  vim.keymap.set({ 'n' }, "gp", gitGoto.previousChange, { noremap = true, silent = true })
+  vim.keymap.set({ 'n' }, "gP", gitGoto.showPreviousChange, { noremap = true, silent = true })
 
   -- problem
   vim.keymap.set({ 'n' }, "<leader>pl", problem.list)
