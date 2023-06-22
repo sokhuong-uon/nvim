@@ -66,6 +66,7 @@ if vim.g.vscode then
   vim.keymap.set({ 'n' }, "<leader>gs", git.status)
   vim.keymap.set({ 'n' }, "<leader>gp", git.pull)
   vim.keymap.set({ 'n' }, "<leader>gg", git.graph)
+  vim.keymap.set({ 'n' }, "gr", gitGoto.revertChange, { noremap = true, silent = true })
 
   -- buffer
   vim.keymap.set({ 'n', 'v' }, "<space>c", buffer.close)

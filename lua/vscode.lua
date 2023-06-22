@@ -228,6 +228,10 @@ local gitGoto = {
   showPreviousChange = function()
     vim.fn.VSCodeNotify("editor.action.dirtydiff.previous")
   end,
+
+  revertChange = function()
+    vim.fn.VSCodeNotify("git.revertSelectedRanges")
+  end
 }
 --#endregion variable
 
