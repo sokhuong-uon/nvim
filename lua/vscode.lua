@@ -186,6 +186,10 @@ local fold = {
   openAllMarkerRegion = function()
     vim.fn.VSCodeNotify("editor.unfoldAllMarkerRegions")
   end,
+
+  gotoParentFold = function()
+    vim.fn.VSCodeNotify("editor.gotoParentFold")
+  end,
 }
 
 local refactor = {
