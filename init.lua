@@ -30,16 +30,20 @@ vim.keymap.set({ 'n', 'v' }, "<C-b>", "<C-b>zz", { noremap = true })
 
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
+
+-- refactor js/ts: remove console.log
+vim.keymap.set('n', "<leader>rc", ":g/console.lo/d<cr>")
+
 --#endregion keymap
 
 if vim.g.vscode then
   --#region keymap
 
   -- whichkey
-  vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
+  vim.keymap.set('n', "<leader>", whichkey.show)
 
   -- orgainze import
-  vim.keymap.set('n', "<leader>i", buffer.organizeImport)
+  vim.keymap.set('n', "<leader>ri", buffer.organizeImport)
 
   -- show VSCode Editor Command ( Ctrl+Shift+P )
   vim.keymap.set('n', "<leader> ", workbench.showCommands)
