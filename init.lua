@@ -123,13 +123,7 @@ if vim.g.vscode then
 
   --folding
   vim.keymap.set({ 'n' }, "zr", fold.openAll)
-  vim.keymap.set({ 'n' }, "zO", fold.openRecursive)
-  vim.keymap.set({ 'n' }, "zo", fold.open)
   vim.keymap.set({ 'n' }, "zm", fold.all)
-  vim.keymap.set({ 'n' }, "zb", fold.blockComment)
-  vim.keymap.set({ 'n' }, "zc", fold.close)
-  vim.keymap.set({ 'n' }, "zg", fold.allMarkerRegion)
-  vim.keymap.set({ 'n' }, "zG", fold.openAllMarkerRegion)
   vim.keymap.set({ 'n' }, "za", fold.toggle)
   --#endregion keymap
 else
