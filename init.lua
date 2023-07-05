@@ -104,6 +104,7 @@ if vim.g.vscode then
 
   -- search
   vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
+  vim.keymap.set({ 'n' }, "<leader>ss", search.symbols)
   vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
   vim.keymap.set({ 'n' }, "<leader>sp", search.project)
   vim.keymap.set({ 'n' }, "<leader>st", search.text)

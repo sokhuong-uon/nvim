@@ -106,6 +106,10 @@ local search = {
     vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
   end,
 
+  symbols = function()
+    vim.fn.VSCodeNotify("workbench.action.gotoSymbol")
+  end,
+
   referenceInSideBar = function()
     vim.fn.VSCodeNotify("references-view.find")
   end,
