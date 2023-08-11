@@ -9,7 +9,7 @@ local whichkey = {
 
 local comment = {
   selected = function()
-    vim.fn.VSCodeNotifyRange("editor.action.commentLine", vim.fn.line("v"), vim.fn.line("."), 1)
+    vim.fn.VSCodeNotify("editor.action.commentLine")
   end
 }
 
@@ -207,7 +207,7 @@ local refactor = {
 
   html = {
     wrap = function()
-      vim.fn.VSCodeNotifyRange("editor.emmet.action.wrapWithAbbreviation", vim.fn.line("v"), vim.fn.line("."), 1)
+      vim.fn.VSCodeNotify("editor.emmet.action.wrapWithAbbreviation")
     end,
 
     delete = function()

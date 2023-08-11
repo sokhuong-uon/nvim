@@ -2,6 +2,7 @@ require("plugins")
 local vscode = require("vscode")
 
 local whichkey = vscode.whichkey
+local comment = vscode.comment
 local refactor = vscode.refactor
 local fold = vscode.fold
 local git = vscode.git
@@ -31,8 +32,11 @@ vim.keymap.set({ 'n', 'v' }, "<C-b>", "<C-b>zz", { noremap = true })
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
 
--- refactor js/ts: remove console.log
-vim.keymap.set('n', "<leader>rc", ":g/console.lo/d<cr>")
+
+-- refactor js/ts: remove console log
+vim.keymap.set('n', "<leader>rc", ":g/\\vconsole[.][lgtc]/d<cr>")
+
+vim.opt.cpoptions = vim.opt.cpoptions + (">")
 
 --#endregion keymap
 
@@ -41,6 +45,9 @@ if vim.g.vscode then
 
   -- whichkey
   vim.keymap.set('n', "<leader>", whichkey.show)
+
+  -- comment
+  vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
 
   -- orgainze import
   vim.keymap.set('n', "<leader>ri", buffer.organizeImport)
@@ -110,14 +117,8 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>st", search.text)
   vim.keymap.set('n', "<leader>sf", search.file)
 
-  -- selection
-  vim.keymap.set('v', "<leader>s", function()
-    vim.fn.VSCodeNotifyRange("setSelection", vim.fn.line("v"), vim.fn.line("."), 1)
-  end, { noremap = true, silent = true })
-
   -- copy
   vim.keymap.set('v', "<leader>y", function()
-    vim.fn.VSCodeNotifyRange("setSelection", vim.fn.line("v"), vim.fn.line("."), 1)
     vim.fn.VSCodeNotify("editor.action.clipboardCopyAction")
   end, { noremap = true, silent = true })
 
