@@ -102,12 +102,12 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>tl", toggle.breadcrumbs)
 
   -- refactor
-  vim.keymap.set('n', "<leader>r", refactor.showMenu)
+  vim.keymap.set({ 'n', 'v' }, "<leader>r", refactor.showMenu)
   vim.keymap.set('n', "<leader>rr", refactor.rename)
   -- refactor html
   vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.html.wrap)
-  vim.keymap.set({ 'n', 'v' }, "<leader>rd", refactor.html.delete)
-  vim.keymap.set({ 'n', 'v' }, "<leader>ru", refactor.html.update)
+  vim.keymap.set({ 'n' }, "<leader>rd", refactor.html.delete)
+  vim.keymap.set({ 'n' }, "<leader>ru", refactor.html.update)
 
   -- search
   vim.keymap.set('n', "<leader>sr", search.reference)
