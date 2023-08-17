@@ -49,23 +49,14 @@ if vim.g.vscode then
   -- comment
   vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
 
-  -- orgainze import
-  vim.keymap.set('n', "<leader>ri", buffer.organizeImport)
-
   -- show VSCode Editor Command ( Ctrl+Shift+P )
   vim.keymap.set('n', "<leader> ", workbench.showCommands)
 
   vim.keymap.set({ 'n', 'v' }, "H", workbench.previousEditor)
   vim.keymap.set({ 'n', 'v' }, "L", workbench.nextEditor)
 
-  -- go to
-  vim.keymap.set('n', "gn", gitGoto.nextChange, { noremap = true, silent = true })
-  vim.keymap.set('n', "gN", gitGoto.showNextChange, { noremap = true, silent = true })
-  vim.keymap.set('n', "gp", gitGoto.previousChange, { noremap = true, silent = true })
-  vim.keymap.set('n', "gP", gitGoto.showPreviousChange, { noremap = true, silent = true })
-
-  -- go to fold
-  vim.keymap.set('n', "gf", fold.gotoParentFold, { noremap = true, silent = true })
+  -- go to parent bracket
+  vim.keymap.set('n', "gb", fold.gotoParentFold, { noremap = true, silent = true })
 
   -- problem
   vim.keymap.set('n', "<leader>pl", problem.list)
@@ -73,23 +64,19 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>pp", problem.previous)
 
   -- git
-  vim.keymap.set('n', "<leader>gb", git.switch)
-  vim.keymap.set('n', "<leader>gi", git.init)
+  vim.keymap.set('n', "<leader>gs", git.switch)
   vim.keymap.set('n', "<leader>gd", git.deleteBranch)
-  vim.keymap.set('n', "<leader>gf", git.fetch)
-  vim.keymap.set('n', "<leader>gs", git.status)
-  vim.keymap.set('n', "<leader>gp", git.pull)
-  vim.keymap.set('n', "<leader>gg", git.graph)
-  vim.keymap.set('n', "gr", gitGoto.revertChange, { noremap = true, silent = true })
+  vim.keymap.set('n', "<leader>gn", gitGoto.nextChange, { noremap = true, silent = true })
+  vim.keymap.set('n', "<leader>gN", gitGoto.showNextChange, { noremap = true, silent = true })
+  vim.keymap.set('n', "<leader>gp", gitGoto.previousChange, { noremap = true, silent = true })
+  vim.keymap.set('n', "<leader>gP", gitGoto.showPreviousChange, { noremap = true, silent = true })
+  vim.keymap.set('n', "<leader>gr", gitGoto.revertChange, { noremap = true, silent = true })
 
   -- buffer
   vim.keymap.set('n', "<leader>c", buffer.close)
   vim.keymap.set('n', "<leader>bc", buffer.close)
   vim.keymap.set('n', "<leader>k", buffer.closeOther)
   vim.keymap.set('n', "<leader>bk", buffer.closeOther)
-  vim.keymap.set('n', "<leader>w", buffer.save)
-  vim.keymap.set('n', "<leader>wa", buffer.saveAll)
-  vim.keymap.set('n', "<leader>bf", buffer.format)
   vim.keymap.set('n', "<leader>bn", buffer.new)
   vim.keymap.set('n', "<leader>bt", buffer.showInExplorer)
   vim.keymap.set('n', "<leader>br", buffer.rename)
@@ -99,11 +86,13 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>tz", toggle.zenMode)
   vim.keymap.set('n', "<leader>ts", toggle.sideBarVisibility)
   vim.keymap.set('n', "<leader>tt", toggle.theme)
-  vim.keymap.set('n', "<leader>tl", toggle.breadcrumbs)
+  vim.keymap.set('n', "<leader>tb", toggle.breadcrumbs)
 
   -- refactor
   vim.keymap.set({ 'n', 'v' }, "<leader>r", refactor.showMenu)
   vim.keymap.set('n', "<leader>rr", refactor.rename)
+  -- orgainze import
+  vim.keymap.set('n', "<leader>ri", buffer.organizeImport)
   -- refactor html
   vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.html.wrap)
   vim.keymap.set({ 'n' }, "<leader>rd", refactor.html.delete)
@@ -113,7 +102,6 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>sr", search.reference)
   vim.keymap.set('n', "<leader>ss", search.symbols)
   vim.keymap.set('n', "<leader>sR", search.referenceInSideBar)
-  vim.keymap.set('n', "<leader>sp", search.project)
   vim.keymap.set('n', "<leader>st", search.text)
   vim.keymap.set('n', "<leader>sf", search.file)
 

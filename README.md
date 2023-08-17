@@ -31,8 +31,8 @@
 
 ### - HTML Emmet
 
-| Binding                                        | What it does                   | Mode  |
-| ---------------------------------------------- | ------------------------------ | ----- |
-| <kbd>leader</kbd> + <kbd>r</kbd>+ <kbd>w</kbd> | Wrap `<tag>`/s in another tag. | `N/V` |
-| <kbd>leader</kbd> + <kbd>r</kbd>+ <kbd>d</kbd> | Delete HTML `<tag>`.           | `N`   |
-| <kbd>leader</kbd> + <kbd>r</kbd>+ <kbd>u</kbd> | Update HTML `<tag>`.           | `N`   |
+| Binding                                         | What it does                   | Mode  |
+| ----------------------------------------------- | ------------------------------ | ----- |
+| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>w</kbd> | Wrap `<tag>`/s in another tag. | `N/V` |
+| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>d</kbd> | Delete HTML `<tag>`.           | `N`   |
+| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>u</kbd> | Update HTML `<tag>`.           | `N`   |
