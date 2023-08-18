@@ -1,5 +1,10 @@
 # Neovim config for using with VSCode
 
+## VSCode extensions needed
+
+- [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim)
+- [whichkey](https://github.com/VSpaceCode/vscode-which-key) (optional)
+
 ## Plugins
 
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim): Plugin manager.
