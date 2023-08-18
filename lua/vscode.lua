@@ -114,7 +114,7 @@ local search = {
     vim.fn.VSCodeNotify("references-view.find")
   end,
 
-  project = function()
+  selected = function()
     vim.fn.VSCodeNotify("editor.action.addSelectionToNextFindMatch")
     vim.fn.VSCodeNotify("workbench.action.findInFiles")
   end,

@@ -73,10 +73,10 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>gr", gitGoto.revertChange, { noremap = true, silent = true })
 
   -- buffer
-  vim.keymap.set('n', "<leader>c", buffer.close)
-  vim.keymap.set('n', "<leader>bc", buffer.close)
-  vim.keymap.set('n', "<leader>k", buffer.closeOther)
-  vim.keymap.set('n', "<leader>bk", buffer.closeOther)
+  vim.keymap.set('n', "<leader>w", buffer.close)
+  vim.keymap.set('n', "<leader>bw", buffer.close)
+  vim.keymap.set('n', "<leader>W", buffer.closeOther)
+  vim.keymap.set('n', "<leader>bW", buffer.closeOther)
   vim.keymap.set('n', "<leader>bn", buffer.new)
   vim.keymap.set('n', "<leader>bt", buffer.showInExplorer)
   vim.keymap.set('n', "<leader>br", buffer.rename)
@@ -104,6 +104,7 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>sR", search.referenceInSideBar)
   vim.keymap.set('n', "<leader>st", search.text)
   vim.keymap.set('n', "<leader>sf", search.file)
+  vim.keymap.set('v', "<leader>sv", search.selected)
 
   -- copy
   vim.keymap.set('v', "<leader>y", function()
