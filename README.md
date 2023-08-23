@@ -41,3 +41,22 @@
 | <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>w</kbd> | Wrap `<tag>`/s in another tag. | `N/V` |
 | <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>d</kbd> | Delete HTML `<tag>`.           | `N`   |
 | <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>u</kbd> | Update HTML `<tag>`.           | `N`   |
+
+### - Buffer/Active Editor/Tab
+
+| Binding                                         | What it does                                | Mode |
+| ----------------------------------------------- | ------------------------------------------- | ---- |
+| <kbd>leader</kbd> + <kbd>w</kbd>                | Close active editor.                        | `N`  |
+| <kbd>leader</kbd> + <kbd>W</kbd>                | Close other active editor/s.                | `N`  |
+| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>t</kbd> | Show active eidtor in file explorer.        | `N`  |
+| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>r</kbd> | Rename file.                                | `N`  |
+| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>n</kbd> | New file in the same folder as active file. | `N`  |
+| <kbd>Ctrl</kbd> + <kbd>s</kbd>                  | Save file.                                  | `N`  |
+
+### - Explore/list navigation
+
+https://github.com/vscode-neovim/vscode-neovim#explorerlist-navigation
+
+### - File explorer manipulation
+
+https://github.com/vscode-neovim/vscode-neovim#explorer-file-manipulation
