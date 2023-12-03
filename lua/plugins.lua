@@ -17,6 +17,19 @@ return require('packer').startup(function(use)
     "ggandor/leap.nvim",
     config = function() require("leap").set_default_keymaps(true) end
   }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+        keymaps = {
+          visual = "gS",
+          visual_line = "gS",
+        }
+      })
+    end
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
