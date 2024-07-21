@@ -7,13 +7,8 @@
 
 ## Plugins
 
-- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim): Plugin manager.
-- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim): Jump to anywhere in visible screen.
-  - <kbd>s</kbd> start searching Forward.
-  - <kbd>S</kbd> start searching Backward.
-  - <kbd>⭾</kbd> move to first result.
-  - Type the _label charactor_ to move to the desired result.
-  - Also works in `Visual mode`.
+- [folke/flash.nvim](https://github.com/folke/flash.nvim).
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround).
 
 ## Keybinding
 
