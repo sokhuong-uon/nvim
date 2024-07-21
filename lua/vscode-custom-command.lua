@@ -1,4 +1,4 @@
-local vscode = {}
+local vscodeCustomCommands = {}
 
 --#region variable
 local whichkey = {
@@ -243,16 +243,16 @@ local gitGoto = {
 }
 --#endregion variable
 
-vscode.whichkey = whichkey
-vscode.comment = comment
-vscode.refactor = refactor
-vscode.fold = fold
-vscode.git = git
-vscode.problem = problem
-vscode.search = search
-vscode.toggle = toggle
-vscode.workbench = workbench
-vscode.buffer = buffer
-vscode.gitGoto = gitGoto
+vscodeCustomCommands.whichkey = whichkey
+vscodeCustomCommands.comment = comment
+vscodeCustomCommands.refactor = refactor
+vscodeCustomCommands.fold = fold
+vscodeCustomCommands.git = git
+vscodeCustomCommands.problem = problem
+vscodeCustomCommands.search = search
+vscodeCustomCommands.toggle = toggle
+vscodeCustomCommands.workbench = workbench
+vscodeCustomCommands.buffer = buffer
+vscodeCustomCommands.gitGoto = gitGoto
 
-return vscode
+return vscodeCustomCommands

@@ -1,17 +1,17 @@
-require("plugins")
-local vscode = require("vscode")
+require("config.lazy")
+local vscodeCustomCommands = require("vscode-custom-command")
 
-local whichkey = vscode.whichkey
-local comment = vscode.comment
-local refactor = vscode.refactor
-local fold = vscode.fold
-local git = vscode.git
-local problem = vscode.problem
-local search = vscode.search
-local toggle = vscode.toggle
-local workbench = vscode.workbench
-local buffer = vscode.buffer
-local gitGoto = vscode.gitGoto
+local whichkey = vscodeCustomCommands.whichkey
+local comment = vscodeCustomCommands.comment
+local refactor = vscodeCustomCommands.refactor
+local fold = vscodeCustomCommands.fold
+local git = vscodeCustomCommands.git
+local problem = vscodeCustomCommands.problem
+local search = vscodeCustomCommands.search
+local toggle = vscodeCustomCommands.toggle
+local workbench = vscodeCustomCommands.workbench
+local buffer = vscodeCustomCommands.buffer
+local gitGoto = vscodeCustomCommands.gitGoto
 
 --#region keymap
 vim.g.mapleader = " "
