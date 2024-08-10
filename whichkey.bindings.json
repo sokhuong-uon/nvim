@@ -18,6 +18,24 @@
     "command": "editor.action.commentLine"
   },
   {
+    "key": "w",
+    "name": "Close Active Editor",
+    "type": "command",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "W",
+    "name": "Close other editors",
+    "type": "command",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "y",
+    "name": "Copy to clipboard",
+    "type": "command",
+    "command": "editor.action.clipboardCopyAction"
+  },
+  {
     "key": "b",
     "name": "+Buffers",
     "type": "bindings",
@@ -55,24 +73,6 @@
     ]
   },
   {
-    "key": "w",
-    "name": "Close Active Editor",
-    "type": "command",
-    "command": "workbench.action.closeActiveEditor"
-  },
-  {
-    "key": "W",
-    "name": "Close other active editors",
-    "type": "command",
-    "command": "workbench.action.closeOtherEditors"
-  },
-  {
-    "key": "y",
-    "name": "Copy to clipboard",
-    "type": "command",
-    "command": "editor.action.clipboardCopyAction"
-  },
-  {
     "key": "g",
     "name": "+Git",
     "type": "bindings",
@@ -98,19 +98,19 @@
     "bindings": [
       {
         "key": "f",
-        "name": "Search file",
+        "name": "Search files",
         "type": "command",
         "command": "workbench.action.quickOpen"
       },
       {
         "key": "t",
-        "name": "Search in a project",
+        "name": "Search text (in files)",
         "type": "command",
         "command": "workbench.action.findInFiles"
       },
       {
-        "key": "v",
-        "name": "Search in a project with a selection",
+        "key": "s",
+        "name": "Search selected (in files)",
         "type": "commands",
         "commands": [
           "editor.action.addSelectionToNextFindMatch",
@@ -119,13 +119,13 @@
       },
       {
         "key": "r",
-        "name": "Search all references",
+        "name": "Search references",
         "type": "command",
         "command": "editor.action.referenceSearch.trigger"
       },
       {
         "key": "R",
-        "name": "Search all references in side bar",
+        "name": "Search references in side bar",
         "type": "command",
         "command": "references-view.find"
       }
@@ -201,7 +201,7 @@
   },
   {
     "key": "r",
-    "name": "+Refactor",
+    "name": "Show refactor menu. +Refactor",
     "type": "bindings",
     "bindings": [
       {
@@ -243,19 +243,19 @@
     "bindings": [
       {
         "key": "a",
-        "name": "Toggle: around a point",
+        "name": "Toggle fold",
         "type": "command",
         "command": "editor.toggleFold"
       },
       {
         "key": "m",
-        "name": "Close: all",
+        "name": "Fold all",
         "type": "command",
         "command": "editor.foldAll"
       },
       {
         "key": "r",
-        "name": "Open: all",
+        "name": "Unfold all",
         "type": "command",
         "command": "editor.unfoldAll"
       }
