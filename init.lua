@@ -44,7 +44,7 @@ if vim.g.vscode then
   --#region keymap
 
   -- whichkey
-  vim.keymap.set('n', "<leader>", whichkey.show)
+  vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
 
   -- comment
   vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
@@ -100,11 +100,10 @@ if vim.g.vscode then
 
   -- search
   vim.keymap.set('n', "<leader>sr", search.reference)
-  vim.keymap.set('n', "<leader>ss", search.symbols)
+  vim.keymap.set('v', "<leader>ss", search.selected)
   vim.keymap.set('n', "<leader>sR", search.referenceInSideBar)
   vim.keymap.set('n', "<leader>st", search.text)
   vim.keymap.set('n', "<leader>sf", search.file)
-  vim.keymap.set('v', "<leader>sv", search.selected)
 
   -- copy
   vim.keymap.set('v', "<leader>y", function()
