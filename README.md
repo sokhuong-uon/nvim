@@ -1,5 +1,12 @@
 # Neovim config for using with VSCode
 
+## Installation (Linux)
+```bash
+bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/nvim/main/installer.sh)
+```
+or clone this repo into your `.config` folder And point VSCode Neovim config path to `init.lua`.
+
+
 ## VSCode extensions needed
 
 - [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim)
