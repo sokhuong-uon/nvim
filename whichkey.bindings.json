@@ -138,6 +138,37 @@
     ]
   },
   {
+    "key": "p",
+    "name": "+Problem",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": ".",
+        "name": "Quick fix",
+        "type": "command",
+        "command": "editor.action.quickFix"
+      },
+      {
+        "key": "l",
+        "name": "List",
+        "type": "command",
+        "command": "workbench.actions.view.problems"
+      },
+      {
+        "key": "n",
+        "name": "Next",
+        "type": "command",
+        "command": "editor.action.marker.next"
+      },
+      {
+        "key": "p",
+        "name": "Previous",
+        "type": "command",
+        "command": "editor.action.marker.prev"
+      }
+    ]
+  },
+  {
     "key": "s",
     "name": "+Search",
     "type": "bindings",

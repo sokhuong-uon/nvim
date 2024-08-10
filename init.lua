@@ -62,6 +62,7 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>pl", problem.list)
   vim.keymap.set('n', "<leader>pn", problem.next)
   vim.keymap.set('n', "<leader>pp", problem.previous)
+  vim.keymap.set('n', "<leader>p.", problem.quickFix)
 
   -- git
   vim.keymap.set('n', "<leader>gs", git.switch)

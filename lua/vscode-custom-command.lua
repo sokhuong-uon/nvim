@@ -23,6 +23,10 @@ local problem = {
   previous = function()
     vim.fn.VSCodeNotify("editor.action.marker.prev")
   end,
+
+  quickFix = function()
+    vim.fn.VSCodeNotify("editor.action.quickFix")
+  end,
 }
 
 local file = {
