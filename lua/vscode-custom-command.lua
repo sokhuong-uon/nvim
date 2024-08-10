@@ -1,5 +1,3 @@
-local vscodeCustomCommands = {}
-
 --#region variable
 local whichkey = {
   show = function()
@@ -27,7 +25,7 @@ local problem = {
   end,
 }
 
-local buffer = {
+local file = {
   new = function()
     vim.fn.VSCodeNotify("workbench.explorer.fileView.focus")
     vim.fn.VSCodeNotify("explorer.newFile")
@@ -49,6 +47,10 @@ local buffer = {
     vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
   end,
 
+  copyPathToClipboard = function()
+    vim.fn.VSCodeNotify("workbench.action.files.copyPathOfActiveFile")
+  end,
+
   rename = function()
     vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
     vim.fn.VSCodeNotify("renameFile")
@@ -60,10 +62,6 @@ local buffer = {
 
   closeOther = function()
     vim.fn.VSCodeNotify("workbench.action.closeOtherEditors")
-  end,
-
-  organizeImport = function()
-    vim.fn.VSCodeNotify("editor.action.organizeImports")
   end
 }
 
@@ -84,7 +82,7 @@ local toggle = {
     vim.fn.VSCodeNotify("workbench.action.toggleActivityBarVisibility")
   end,
 
-  sideBarVisibility = function()
+  sidebar = function()
     vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
   end,
 
@@ -217,7 +215,11 @@ local refactor = {
     update = function()
       vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
     end,
-  }
+  },
+
+  organizeImport = function()
+    vim.fn.VSCodeNotify("editor.action.organizeImports")
+  end
 }
 
 local gitGoto = {
@@ -243,16 +245,18 @@ local gitGoto = {
 }
 --#endregion variable
 
-vscodeCustomCommands.whichkey = whichkey
-vscodeCustomCommands.comment = comment
-vscodeCustomCommands.refactor = refactor
-vscodeCustomCommands.fold = fold
-vscodeCustomCommands.git = git
-vscodeCustomCommands.problem = problem
-vscodeCustomCommands.search = search
-vscodeCustomCommands.toggle = toggle
-vscodeCustomCommands.workbench = workbench
-vscodeCustomCommands.buffer = buffer
-vscodeCustomCommands.gitGoto = gitGoto
+local vscodeCustomCommands = {
+  whichkey = whichkey,
+  comment = comment,
+  refactor = refactor,
+  fold = fold,
+  git = git,
+  problem = problem,
+  search = search,
+  toggle = toggle,
+  workbench = workbench,
+  file = file,
+  gitGoto = gitGoto
+}
 
 return vscodeCustomCommands

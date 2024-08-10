@@ -10,7 +10,7 @@ local problem = vscodeCustomCommands.problem
 local search = vscodeCustomCommands.search
 local toggle = vscodeCustomCommands.toggle
 local workbench = vscodeCustomCommands.workbench
-local buffer = vscodeCustomCommands.buffer
+local file = vscodeCustomCommands.file
 local gitGoto = vscodeCustomCommands.gitGoto
 
 --#region keymap
@@ -72,19 +72,23 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>gP", gitGoto.showPreviousChange, { noremap = true, silent = true })
   vim.keymap.set('n', "<leader>gr", gitGoto.revertChange, { noremap = true, silent = true })
 
-  -- buffer
-  vim.keymap.set('n', "<leader>w", buffer.close)
-  vim.keymap.set('n', "<leader>bw", buffer.close)
-  vim.keymap.set('n', "<leader>W", buffer.closeOther)
-  vim.keymap.set('n', "<leader>bW", buffer.closeOther)
-  vim.keymap.set('n', "<leader>bn", buffer.new)
-  vim.keymap.set('n', "<leader>bt", buffer.showInExplorer)
-  vim.keymap.set('n', "<leader>br", buffer.rename)
+  -- file
+  vim.keymap.set('n', "<leader>w", file.close)
+  vim.keymap.set('n', "<leader>W", file.closeOther)
+
+  vim.keymap.set('n', "<leader>ff", file.format)
+  vim.keymap.set('n', "<leader>fn", file.new)
+  vim.keymap.set('n', "<leader>fr", file.rename)
+  vim.keymap.set('n', "<leader>fs", file.save)
+  vim.keymap.set('n', "<leader>fS", file.saveAll)
+
+  vim.keymap.set('n', "<leader>fe", file.showInExplorer)
+  vim.keymap.set('n', "<leader>fp", file.copyPathToClipboard)
 
   -- toggle
   vim.keymap.set('n', "<leader>ta", toggle.activityBar)
   vim.keymap.set('n', "<leader>tz", toggle.zenMode)
-  vim.keymap.set('n', "<leader>ts", toggle.sideBarVisibility)
+  vim.keymap.set('n', "<leader>ts", toggle.sidebar)
   vim.keymap.set('n', "<leader>tt", toggle.theme)
   vim.keymap.set('n', "<leader>tb", toggle.breadcrumbs)
 
@@ -92,7 +96,7 @@ if vim.g.vscode then
   vim.keymap.set({ 'n', 'v' }, "<leader>r", refactor.showMenu)
   vim.keymap.set('n', "<leader>rr", refactor.rename)
   -- orgainze import
-  vim.keymap.set('n', "<leader>ri", buffer.organizeImport)
+  vim.keymap.set('n', "<leader>ri", refactor.organizeImport)
   -- refactor html
   vim.keymap.set({ 'n', 'v' }, "<leader>rw", refactor.html.wrap)
   vim.keymap.set({ 'n' }, "<leader>rd", refactor.html.delete)

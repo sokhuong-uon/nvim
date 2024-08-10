@@ -73,6 +73,52 @@
     ]
   },
   {
+    "key": "f",
+    "name": "+File",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": "s",
+        "name": "Save file",
+        "type": "command",
+        "command": "workbench.action.files.save"
+      },
+      {
+        "key": "S",
+        "name": "Save all files",
+        "type": "command",
+        "command": "workbench.action.files.saveAll"
+      },
+      {
+        "key": "r",
+        "name": "Rename file",
+        "type": "commands",
+        "commands": [
+          "workbench.files.action.showActiveFileInExplorer",
+          "renameFile"
+        ]
+      },
+      {
+        "key": "e",
+        "name": "Show active file in tree/explorer view",
+        "type": "command",
+        "command": "workbench.files.action.showActiveFileInExplorer"
+      },
+      {
+        "key": "p",
+        "name": "Copy file path",
+        "type": "command",
+        "command": "workbench.action.files.copyPathOfActiveFile"
+      },
+      {
+        "key": "f",
+        "name": "Format file",
+        "type": "command",
+        "command": "editor.action.formatDocument"
+      }
+    ]
+  },
+  {
     "key": "g",
     "name": "+Git",
     "type": "bindings",
