@@ -7,6 +7,12 @@ return {
       highlight = {
         backdrop = false,
       },
+      modes = {
+        char = {
+          highlight = { backdrop = false },
+          multi_line = false,
+        }
+      }
     },
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },

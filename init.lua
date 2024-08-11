@@ -16,8 +16,6 @@ local gitGoto = vscodeCustomCommands.gitGoto
 --#region keymap
 vim.g.mapleader = " "
 
--- vim.keymap.set('i', 'jk', "<Esc>")
-
 vim.keymap.set({ 'n', 'v' }, '<leader>h', '^', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>l', '$', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>a', '%', { remap = true, silent = true })

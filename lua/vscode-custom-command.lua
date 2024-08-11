@@ -1,250 +1,252 @@
+local vscode = require('vscode')
+
 --#region variable
 local whichkey = {
   show = function()
-    vim.fn.VSCodeNotify("whichkey.show")
+    vscode.action("whichkey.show")
   end
 }
 
 local comment = {
   selected = function()
-    vim.fn.VSCodeNotify("editor.action.commentLine")
+    vscode.action("editor.action.commentLine")
   end
 }
 
 local problem = {
   list = function()
-    vim.fn.VSCodeNotify("workbench.actions.view.problems")
+    vscode.action("workbench.actions.view.problems")
   end,
 
   next = function()
-    vim.fn.VSCodeNotify("editor.action.marker.next")
+    vscode.action("editor.action.marker.next")
   end,
 
   previous = function()
-    vim.fn.VSCodeNotify("editor.action.marker.prev")
+    vscode.action("editor.action.marker.prev")
   end,
 
   quickFix = function()
-    vim.fn.VSCodeNotify("editor.action.quickFix")
+    vscode.action("editor.action.quickFix")
   end,
 }
 
 local file = {
   new = function()
-    vim.fn.VSCodeNotify("workbench.explorer.fileView.focus")
-    vim.fn.VSCodeNotify("explorer.newFile")
+    vscode.action("workbench.explorer.fileView.focus")
+    vscode.action("explorer.newFile")
   end,
 
   save = function()
-    vim.fn.VSCodeNotify("workbench.action.files.save")
+    vscode.action("workbench.action.files.save")
   end,
 
   saveAll = function()
-    vim.fn.VSCodeNotify("workbench.action.files.saveAll")
+    vscode.action("workbench.action.files.saveAll")
   end,
 
   format = function()
-    vim.fn.VSCodeNotify("editor.action.formatDocument")
+    vscode.action("editor.action.formatDocument")
   end,
 
   showInExplorer = function()
-    vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
+    vscode.action("workbench.files.action.showActiveFileInExplorer")
   end,
 
   copyPathToClipboard = function()
-    vim.fn.VSCodeNotify("workbench.action.files.copyPathOfActiveFile")
+    vscode.action("workbench.action.files.copyPathOfActiveFile")
   end,
 
   rename = function()
-    vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
-    vim.fn.VSCodeNotify("renameFile")
+    vscode.action("workbench.files.action.showActiveFileInExplorer")
+    vscode.action("renameFile")
   end,
 
   close = function()
-    vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
+    vscode.action("workbench.action.closeActiveEditor")
   end,
 
   closeOther = function()
-    vim.fn.VSCodeNotify("workbench.action.closeOtherEditors")
+    vscode.action("workbench.action.closeOtherEditors")
   end
 }
 
 local workbench = {
   showCommands = function()
-    vim.fn.VSCodeNotify("workbench.action.showCommands")
+    vscode.action("workbench.action.showCommands")
   end,
   previousEditor = function()
-    vim.fn.VSCodeNotify("workbench.action.previousEditor")
+    vscode.action("workbench.action.previousEditor")
   end,
   nextEditor = function()
-    vim.fn.VSCodeNotify("workbench.action.nextEditor")
+    vscode.action("workbench.action.nextEditor")
   end,
 }
 
 local toggle = {
   activityBar = function()
-    vim.fn.VSCodeNotify("workbench.action.toggleActivityBarVisibility")
+    vscode.action("workbench.action.toggleActivityBarVisibility")
   end,
 
   sidebar = function()
-    vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
+    vscode.action("workbench.action.toggleSidebarVisibility")
   end,
 
   zenMode = function()
-    vim.fn.VSCodeNotify("workbench.action.toggleZenMode")
+    vscode.action("workbench.action.toggleZenMode")
   end,
 
   theme = function()
-    vim.fn.VSCodeNotify("workbench.action.selectTheme")
+    vscode.action("workbench.action.selectTheme")
   end,
 
   breadcrumbs = function()
-    vim.fn.VSCodeNotify("breadcrumbs.toggle")
+    vscode.action("breadcrumbs.toggle")
   end,
 }
 
 local search = {
   reference = function()
-    vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
+    vscode.action("editor.action.referenceSearch.trigger")
   end,
 
   symbols = function()
-    vim.fn.VSCodeNotify("workbench.action.gotoSymbol")
+    vscode.action("workbench.action.gotoSymbol")
   end,
 
   referenceInSideBar = function()
-    vim.fn.VSCodeNotify("references-view.find")
+    vscode.action("references-view.find")
   end,
 
   selected = function()
-    vim.fn.VSCodeNotify("editor.action.addSelectionToNextFindMatch")
-    vim.fn.VSCodeNotify("workbench.action.findInFiles")
+    vscode.action("editor.action.addSelectionToNextFindMatch")
+    vscode.action("workbench.action.findInFiles")
   end,
 
   text = function()
-    vim.fn.VSCodeNotify("workbench.action.findInFiles")
+    vscode.action("workbench.action.findInFiles")
   end,
 
   file = function()
-    vim.fn.VSCodeNotify("workbench.action.quickOpen")
+    vscode.action("workbench.action.quickOpen")
   end,
 }
 
 local git = {
   init = function()
-    vim.fn.VSCodeNotify("git.init")
+    vscode.action("git.init")
   end,
   status = function()
-    vim.fn.VSCodeNotify("workbench.view.scm")
+    vscode.action("workbench.view.scm")
   end,
   switch = function()
-    vim.fn.VSCodeNotify("git.checkout")
+    vscode.action("git.checkout")
   end,
   deleteBranch = function()
-    vim.fn.VSCodeNotify("git.deleteBranch")
+    vscode.action("git.deleteBranch")
   end,
   push = function()
-    vim.fn.VSCodeNotify("git.push")
+    vscode.action("git.push")
   end,
   pull = function()
-    vim.fn.VSCodeNotify("git.pull")
+    vscode.action("git.pull")
   end,
   fetch = function()
-    vim.fn.VSCodeNotify("git.fetch")
+    vscode.action("git.fetch")
   end,
   commit = function()
-    vim.fn.VSCodeNotify("git.commit")
+    vscode.action("git.commit")
   end,
   publish = function()
-    vim.fn.VSCodeNotify("git.publish")
+    vscode.action("git.publish")
   end,
   -- gitlens installed
   graph = function()
-    vim.fn.VSCodeNotify("gitlens.showGraphPage")
+    vscode.action("gitlens.showGraphPage")
   end,
 }
 
 local fold = {
   toggle = function()
-    vim.fn.VSCodeNotify("editor.toggleFold")
+    vscode.action("editor.toggleFold")
   end,
   all = function()
-    vim.fn.VSCodeNotify("editor.foldAll")
+    vscode.action("editor.foldAll")
   end,
   openAll = function()
-    vim.fn.VSCodeNotify("editor.unfoldAll")
+    vscode.action("editor.unfoldAll")
   end,
   close = function()
-    vim.fn.VSCodeNotify("editor.fold")
+    vscode.action("editor.fold")
   end,
   open = function()
-    vim.fn.VSCodeNotify("editor.unfold")
+    vscode.action("editor.unfold")
   end,
   openRecursive = function()
-    vim.fn.VSCodeNotify("editor.unfoldRecursively")
+    vscode.action("editor.unfoldRecursively")
   end,
   blockComment = function()
-    vim.fn.VSCodeNotify("editor.foldAllBlockComments")
+    vscode.action("editor.foldAllBlockComments")
   end,
   allMarkerRegion = function()
-    vim.fn.VSCodeNotify("editor.foldAllMarkerRegions")
+    vscode.action("editor.foldAllMarkerRegions")
   end,
   openAllMarkerRegion = function()
-    vim.fn.VSCodeNotify("editor.unfoldAllMarkerRegions")
+    vscode.action("editor.unfoldAllMarkerRegions")
   end,
 
   gotoParentFold = function()
-    vim.fn.VSCodeNotify("editor.gotoParentFold")
+    vscode.action("editor.gotoParentFold")
   end,
 }
 
 local refactor = {
   showMenu = function()
-    vim.fn.VSCodeNotify("editor.action.refactor")
+    vscode.action("editor.action.refactor")
   end,
 
   rename = function()
-    vim.fn.VSCodeNotify("editor.action.rename")
+    vscode.action("editor.action.rename")
   end,
 
   html = {
     wrap = function()
-      vim.fn.VSCodeNotify("editor.emmet.action.wrapWithAbbreviation")
+      vscode.action("editor.emmet.action.wrapWithAbbreviation")
     end,
 
     delete = function()
-      vim.fn.VSCodeNotify("editor.emmet.action.removeTag")
+      vscode.action("editor.emmet.action.removeTag")
     end,
 
     update = function()
-      vim.fn.VSCodeNotify("editor.emmet.action.updateTag")
+      vscode.action("editor.emmet.action.updateTag")
     end,
   },
 
   organizeImport = function()
-    vim.fn.VSCodeNotify("editor.action.organizeImports")
+    vscode.action("editor.action.organizeImports")
   end
 }
 
 local gitGoto = {
   nextChange = function()
-    vim.fn.VSCodeNotify("workbench.action.editor.nextChange")
+    vscode.action("workbench.action.editor.nextChange")
   end,
 
   showNextChange = function()
-    vim.fn.VSCodeNotify("editor.action.dirtydiff.next")
+    vscode.action("editor.action.dirtydiff.next")
   end,
 
   previousChange = function()
-    vim.fn.VSCodeNotify("workbench.action.editor.previousChange")
+    vscode.action("workbench.action.editor.previousChange")
   end,
 
   showPreviousChange = function()
-    vim.fn.VSCodeNotify("editor.action.dirtydiff.previous")
+    vscode.action("editor.action.dirtydiff.previous")
   end,
 
   revertChange = function()
-    vim.fn.VSCodeNotify("git.revertSelectedRanges")
+    vscode.action("git.revertSelectedRanges")
   end
 }
 --#endregion variable
