@@ -26,36 +26,36 @@ Point VSCode Neovim config path to `init.lua`.
 
 | Binding                          | What it does               | Mode  | VSCode command                  |
 | -------------------------------- | -------------------------- | ----- | ------------------------------- |
-| <kbd>leader</kbd>                | Show whichkey menu.        | `N`   | `whichkey.show`                 |
-| <kbd>leader</kbd> + <kbd>⎵</kbd> | Show Command Palette.      | `N`   | `workbench.action.showCommands` |
-| <kbd>leader</kbd> + <kbd>/</kbd> | Comment out selected code. | `N/V` | `editor.action.commentLine`     |
+| <kbd>⎵</kbd>                | Show whichkey menu.        | `N`   | `whichkey.show`                 |
+| <kbd>⎵</kbd> + <kbd>⎵</kbd> | Show Command Palette.      | `N`   | `workbench.action.showCommands` |
+| <kbd>⎵</kbd> + <kbd>/</kbd> | Comment out selected code. | `N/V` | `editor.action.commentLine`     |
 
 ### - Refactor
 
 | Binding                                         | What it does        | Mode  | VSCode command                     |
 | ----------------------------------------------- | ------------------- | ----- | ---------------------------------- |
-| <kbd>leader</kbd> + <kbd>r</kbd>                | Show refactor menu. | `N/V` | `editor.action.refactor`           |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>r</kbd> | Rename symbol.      | `N`   | `editor.action.rename`             |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>i</kbd> | Organize import.    | `N`   | `editor.action.organizeImports`    |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>c</kbd> | Remove console log. | `N`   | **`:g/\\vconsole[.][lgtc]/d<cr>`** |
+| <kbd>⎵</kbd> + <kbd>r</kbd>                | Show refactor menu. | `N/V` | `editor.action.refactor`           |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>r</kbd> | Rename symbol.      | `N`   | `editor.action.rename`             |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>i</kbd> | Organize import.    | `N`   | `editor.action.organizeImports`    |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>c</kbd> | Remove console log. | `N`   | **`:g/\\vconsole[.][lgtc]/d<cr>`** |
 
 ### - HTML Emmet
 
 | Binding                                         | What it does                   | Mode  | VSCode command                             |
 | ----------------------------------------------- | ------------------------------ | ----- | ------------------------------------------ |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>w</kbd> | Wrap `<tag>`/s in another tag. | `N/V` | `editor.emmet.action.wrapWithAbbreviation` |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>d</kbd> | Delete HTML `<tag>`.           | `N`   | `editor.emmet.action.removeTag`            |
-| <kbd>leader</kbd> + <kbd>r</kbd> + <kbd>u</kbd> | Update HTML `<tag>`.           | `N`   | `editor.emmet.action.updateTag`            |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>w</kbd> | Wrap `<tag>`/s in another tag. | `N/V` | `editor.emmet.action.wrapWithAbbreviation` |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>d</kbd> | Delete HTML `<tag>`.           | `N`   | `editor.emmet.action.removeTag`            |
+| <kbd>⎵</kbd> + <kbd>r</kbd> + <kbd>u</kbd> | Update HTML `<tag>`.           | `N`   | `editor.emmet.action.updateTag`            |
 
 ### - Buffer/Active Editor/Tab
 
 | Binding                                         | What it does                                | Mode | VSCode command                                                  |
 | ----------------------------------------------- | ------------------------------------------- | ---- | --------------------------------------------------------------- |
-| <kbd>leader</kbd> + <kbd>w</kbd>                | Close active editor.                        | `N`  | `workbench.action.closeActiveEditor`                            |
-| <kbd>leader</kbd> + <kbd>W</kbd>                | Close other active editor/s.                | `N`  | `workbench.action.closeOtherEditors`                            |
-| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>t</kbd> | Show active eidtor in file explorer.        | `N`  | `workbench.files.action.showActiveFileInExplorer`               |
-| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>r</kbd> | Rename file.                                | `N`  | `workbench.files.action.showActiveFileInExplorer`, `renameFile` |
-| <kbd>leader</kbd> + <kbd>b</kbd> + <kbd>n</kbd> | New file in the same folder as active file. | `N`  | `workbench.explorer.fileView.focus`, `explorer.newFile`         |
+| <kbd>⎵</kbd> + <kbd>w</kbd>                | Close active editor.                        | `N`  | `workbench.action.closeActiveEditor`                            |
+| <kbd>⎵</kbd> + <kbd>W</kbd>                | Close other active editor/s.                | `N`  | `workbench.action.closeOtherEditors`                            |
+| <kbd>⎵</kbd> + <kbd>b</kbd> + <kbd>t</kbd> | Show active eidtor in file explorer.        | `N`  | `workbench.files.action.showActiveFileInExplorer`               |
+| <kbd>⎵</kbd> + <kbd>b</kbd> + <kbd>r</kbd> | Rename file.                                | `N`  | `workbench.files.action.showActiveFileInExplorer`, `renameFile` |
+| <kbd>⎵</kbd> + <kbd>b</kbd> + <kbd>n</kbd> | New file in the same folder as active file. | `N`  | `workbench.explorer.fileView.focus`, `explorer.newFile`         |
 | <kbd>Ctrl</kbd> + <kbd>s</kbd>                  | Save file.                                  | `N`  | <kbd>Ctrl</kbd> + <kbd>s</kbd>                                  |
 
 <!-- <table>
