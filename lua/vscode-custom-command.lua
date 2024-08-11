@@ -13,6 +13,12 @@ local comment = {
   end
 }
 
+local multiCursor = function()
+  vscode.with_insert(function()
+    vscode.action("editor.action.addSelectionToNextFindMatch")
+  end)
+end
+
 local problem = {
   list = function()
     vscode.action("workbench.actions.view.problems")
@@ -254,6 +260,7 @@ local gitGoto = {
 local vscodeCustomCommands = {
   whichkey = whichkey,
   comment = comment,
+  multiCursor = multiCursor,
   refactor = refactor,
   fold = fold,
   git = git,

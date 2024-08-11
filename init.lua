@@ -47,6 +47,9 @@ if vim.g.vscode then
   -- comment
   vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
 
+  -- multi cursor
+  vim.keymap.set({ "n", "x", "i" }, "<C-d>", vscodeCustomCommands.multiCursor)
+
   -- show VSCode Editor Command ( Ctrl+Shift+P )
   vim.keymap.set('n', "<leader> ", workbench.showCommands)
 
