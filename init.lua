@@ -1,17 +1,4 @@
 require("config.lazy")
-local vscodeCustomCommands = require("vscode-custom-command")
-
-local whichkey = vscodeCustomCommands.whichkey
-local comment = vscodeCustomCommands.comment
-local refactor = vscodeCustomCommands.refactor
-local fold = vscodeCustomCommands.fold
-local git = vscodeCustomCommands.git
-local problem = vscodeCustomCommands.problem
-local search = vscodeCustomCommands.search
-local toggle = vscodeCustomCommands.toggle
-local workbench = vscodeCustomCommands.workbench
-local file = vscodeCustomCommands.file
-local gitGoto = vscodeCustomCommands.gitGoto
 
 --#region keymap
 vim.g.mapleader = " "
@@ -30,15 +17,30 @@ vim.keymap.set({ 'n', 'v' }, "<C-b>", "<C-b>zz", { noremap = true })
 -- no highlight
 vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
 
-
 -- refactor js/ts: remove console log
 vim.keymap.set('n', "<leader>rc", ":g/\\vconsole[.][lgtc]/d<cr>")
 
 vim.opt.cpoptions = vim.opt.cpoptions + (">")
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 --#endregion keymap
 
 if vim.g.vscode then
+  local vscodeCustomCommands = require("vscode-custom-command")
+
+  local whichkey = vscodeCustomCommands.whichkey
+  local comment = vscodeCustomCommands.comment
+  local refactor = vscodeCustomCommands.refactor
+  local fold = vscodeCustomCommands.fold
+  local git = vscodeCustomCommands.git
+  local problem = vscodeCustomCommands.problem
+  local search = vscodeCustomCommands.search
+  local toggle = vscodeCustomCommands.toggle
+  local workbench = vscodeCustomCommands.workbench
+  local file = vscodeCustomCommands.file
+  local gitGoto = vscodeCustomCommands.gitGoto
   --#region keymap
 
   -- whichkey
@@ -50,14 +52,14 @@ if vim.g.vscode then
   -- multi cursor
   vim.keymap.set({ "n", "x", "i" }, "<C-d>", vscodeCustomCommands.multiCursor)
 
-  -- show VSCode Editor Command ( Ctrl+Shift+P )
-  vim.keymap.set('n', "<leader> ", workbench.showCommands)
-
   vim.keymap.set({ 'n', 'v' }, "H", workbench.previousEditor)
   vim.keymap.set({ 'n', 'v' }, "L", workbench.nextEditor)
 
   -- go to parent bracket
   vim.keymap.set('n', "gb", fold.gotoParentFold, { noremap = true, silent = true })
+
+  -- show VSCode Editor Command ( Ctrl+Shift+P )
+  vim.keymap.set('n', "<leader>p", workbench.showCommands)
 
   -- problem
   vim.keymap.set('n', "<leader>pl", problem.list)
@@ -110,6 +112,7 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>sR", search.referenceInSideBar)
   vim.keymap.set('n', "<leader>st", search.text)
   vim.keymap.set('n', "<leader>sf", search.file)
+  vim.keymap.set('n', "<leader> ", search.file)
 
   -- copy
   vim.keymap.set('v', "<leader>y", function()
